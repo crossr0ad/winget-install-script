@@ -1,0 +1,11 @@
+普通のアプリ: wingetでインストール・アプデしたい
+winget install ...
+
+自動アプデ機能があるアプリ: wingetでインストールだけする
+※ プリインストールされている可能性を考慮して`--no-upgrade`を付ける
+winget install ... --no-upgrade
+winget pin add ...
+
+wingetで管理しない
+※ winget は明示的にインストールしていないアプリもアプデしようとすることがある
+winget pin add ...
