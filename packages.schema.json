@@ -5,47 +5,52 @@
 		"packages": {
 			"type": "array",
 			"items": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"pin": {
-						"type": "boolean"
-					},
-					"skip_install": {
-						"type": "boolean",
-						"description": "`pin: true` と組み合わせる"
-					},
-					"option": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"minItems": 1,
-						"description": "`winget install` に渡される引数"
-					},
-					"device": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"minItems": 1,
-						"uniqueItems": true
-					},
-					"disabled": {
-						"type": "boolean"
-					}
-				},
-				"required": ["id"],
-				"additionalProperties": false
+				"$ref": "#/defs/package"
 			},
 			"minItems": 1,
 			"uniqueItems": true
 		}
 	},
-	"required": ["packages"]
+	"required": ["packages"],
+	"defs": {
+		"package": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"pin": {
+					"type": "boolean"
+				},
+				"skip_install": {
+					"type": "boolean",
+					"description": "`pin: true` と組み合わせる"
+				},
+				"option": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"minItems": 1,
+					"description": "`winget install` に渡される引数"
+				},
+				"device": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"minItems": 1,
+					"uniqueItems": true
+				},
+				"disabled": {
+					"type": "boolean"
+				}
+			},
+			"required": ["id"],
+			"additionalProperties": false
+		}
+	}
 }
